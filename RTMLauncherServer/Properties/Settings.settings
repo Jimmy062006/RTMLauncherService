@@ -1,12 +1,12 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="RTMLauncherServer.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="RTMLauncherService.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="MinerPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\cpuminer-gr\cpuminer-gr-1.1.9-x86_64_windows</Value>
+      <Value Profile="(Default)">C:\cpuminer-gr\cpuminer-gr-1.2.0-x86_64_windows\</Value>
     </Setting>
     <Setting Name="MinerExe" Type="System.String" Scope="User">
-      <Value Profile="(Default)">cpuminer-zen3.exe</Value>
+      <Value Profile="(Default)">cpuminer.bat</Value>
     </Setting>
     <Setting Name="MinerConfig" Type="System.String" Scope="User">
       <Value Profile="(Default)">cpuminer.conf</Value>

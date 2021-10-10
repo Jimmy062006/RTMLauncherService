@@ -25,7 +25,7 @@ namespace RTMLauncherService.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\cpuminer-gr\\cpuminer-gr-1.1.9-x86_64_windows")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\cpuminer-gr\\cpuminer-gr-1.2.0-x86_64_windows\\")]
         public string MinerPath {
             get {
                 return ((string)(this["MinerPath"]));
@@ -37,7 +37,7 @@ namespace RTMLauncherService.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("cpuminer-zen3.exe")]
+        [global::System.Configuration.DefaultSettingValueAttribute("cpuminer.bat")]
         public string MinerExe {
             get {
                 return ((string)(this["MinerExe"]));
