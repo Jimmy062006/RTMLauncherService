@@ -9,7 +9,7 @@
       <Value Profile="(Default)">cpuminer.bat</Value>
     </Setting>
     <Setting Name="MinerConfig" Type="System.String" Scope="User">
-      <Value Profile="(Default)">cpuminer.conf</Value>
+      <Value Profile="(Default)">config.json</Value>
     </Setting>
   </Settings>
 </SettingsFile>

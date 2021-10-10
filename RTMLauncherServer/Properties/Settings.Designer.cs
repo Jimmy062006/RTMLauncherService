@@ -49,7 +49,7 @@ namespace RTMLauncherService.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("cpuminer.conf")]
+        [global::System.Configuration.DefaultSettingValueAttribute("config.json")]
         public string MinerConfig {
             get {
                 return ((string)(this["MinerConfig"]));
