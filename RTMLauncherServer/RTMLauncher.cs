@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Management;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading;
@@ -51,9 +52,9 @@ namespace RTMLauncherService
             {
                 Thread.Sleep(100);
             }
-#endif
 
             Console.WriteLine("Debugger attached");
+#endif
             eventLog1.WriteEntry("Starting RTMLauncher.");
             StartMiner().ConfigureAwait(false);
         }
@@ -110,12 +111,16 @@ namespace RTMLauncherService
             catch { }
         }
 
-        protected override void OnStop()
+        protected async override void OnStop()
         {
             eventLog1.WriteEntry("Stopping RTMLauncher.");
             try
             {
-                process.Kill();
+                while (!process.HasExited)
+                {
+                    KillProcessAndChildren(process.Id);
+                    await Task.Delay(1000);
+                }
             }
             catch { }
         }
@@ -130,6 +135,29 @@ namespace RTMLauncherService
 
         }
 
-
+        private static void KillProcessAndChildren(int pid)
+        {
+            // Cannot close 'system idle process'.
+            if (pid == 0)
+            {
+                return;
+            }
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher
+                    ("Select * From Win32_Process Where ParentProcessID=" + pid);
+            ManagementObjectCollection moc = searcher.Get();
+            foreach (ManagementObject mo in moc)
+            {
+                KillProcessAndChildren(Convert.ToInt32(mo["ProcessID"]));
+            }
+            try
+            {
+                Process proc = Process.GetProcessById(pid);
+                proc.Kill();
+            }
+            catch (ArgumentException)
+            {
+                // Process already exited.
+            }
+        }
     }
 }
